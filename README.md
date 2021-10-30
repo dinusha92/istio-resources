@@ -26,9 +26,16 @@ Apply the manifest yamls on the Kubernetes cluster.
 ```
 kubectl apply -f .
 ```
-Verify the status of the Istio installation.
+Verify the status of the Istio installation by checking if the pods are in the READY state as shown belowe.
 ```
-kubectl get pods -n istio-system -w
+kubectl get pods -n istio-system
+
+#You should see a similar output as shown below.
+NAME                                    READY   STATUS    RESTARTS   AGE
+istio-egressgateway-5f8b47cfc-b7xpr     1/1     Running   0          105s
+istio-ingressgateway-64b7899489-dpltx   1/1     Running   0          105s
+istiod-5d9bbb9cb4-mkc6n                 1/1     Running   0          105s
+
 ```
 Installing addons.
 - Addons are not mandatory, but supportive artifacts for the service mesh. You can find manifest files for each addon using the link below.
