@@ -1,0 +1,13 @@
+apiVersion: networking.istio.io/v1alpha3
+kind: DestinationRule
+metadata:
+  name: circuit-breaker-for-the-entire-default-namespace
+spec:
+  host: "mock-service.default.svc.cluster.local"   # Kubernetes service name the rule to be applied on
+  trafficPolicy:
+    outlierDetection: # Enabling CIRCUIT BREAKING
+      maxEjectionPercent: 100
+      consecutive5xxErrors: 3  #How many errors should be occurred to trigger circuit breaking
+      interval: 10s #Time interval of the
+      baseEjectionTime: 10s
+ 

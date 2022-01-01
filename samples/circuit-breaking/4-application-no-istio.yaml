@@ -1,0 +1,72 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: timeout-dep
+spec:
+  selector:
+    matchLabels:
+      run: mock
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        run: mock
+    spec:
+      containers:
+      - image: rodolpheche/wiremock:2.25.1
+        name: mock
+        resources: {}
+        volumeMounts:
+        - name: file
+          mountPath: /home/wiremock/mappings/
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: file
+        configMap:
+          name: timeout-backend-cm
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-dep
+spec:
+  selector:
+    matchLabels:
+      run: mock
+  replicas: 1
+  template: # template for the pods
+    metadata:
+      labels:
+        run: mock
+    spec:
+      containers:
+      - image: rodolpheche/wiremock:2.25.1
+        name: mock
+        resources: {}
+        volumeMounts:
+        - name: file
+          mountPath: /home/wiremock/mappings/
+      dnsPolicy: ClusterFirst
+      restartPolicy: Always
+      volumes:
+      - name: file
+        configMap:
+          name: hello-backend-cm
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mock-service
+spec:
+  # This defines which pods are going to be represented by this Service
+  # The service becomes a network endpoint for either other services
+  # or maybe external users to connect to (eg browser)
+  selector:
+    run: mock
+  ports:
+    - name: http
+      port: 80
+      targetPort: 8080
+  type: ClusterIP

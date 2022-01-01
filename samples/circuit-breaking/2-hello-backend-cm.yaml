@@ -1,0 +1,18 @@
+apiVersion: v1
+data:
+  hello.json: |2
+
+    {
+      "request": {
+        "method": "GET",
+        "url": "/hello"
+      },
+      "response": {
+        "status": 200,
+        "body": "hello!"
+      }
+    }
+kind: ConfigMap
+metadata:
+  creationTimestamp: null
+  name: hello-backend-cm
