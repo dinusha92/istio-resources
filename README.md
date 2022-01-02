@@ -39,11 +39,16 @@ prometheus-9f4947649-lt9j5              2/2     Running   0          9m29s
 
 ```
 
+### Accessing Services
+
 How to access the portals.
 
 When you list the services in the *istio-system* namespace, you will see an output similar to below.
 
-### Accessing Services
+```
+kubectl get svc -n istio-system
+```
+
 ```
 NAME                   TYPE           CLUSTER-IP       EXTERNAL-IP   PORT(S)                                                                      AGE
 istio-egressgateway    ClusterIP      10.111.128.21    <none>        80/TCP,443/TCP                                                               154m
