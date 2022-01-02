@@ -1,6 +1,8 @@
 # istio-resources
 This repository contains Istio resources from installation to covering use cases of istio.
 
+The current installation are artifacts are created for Istio version 1.11.
+
 ### Install istio
 
 Istio can be installed a couple of [ways](https://istio.io/v1.11/docs/setup/install/).
@@ -14,9 +16,9 @@ Clone the repository
 git clone git@github.com:dinusha92/istio-resources.git
 ```
 
-Navigate inside the root directory of the downloaded project and then navigate inside *istio-1.11.4-installation/istio* directory.
+Navigate inside the root directory of the downloaded project and then navigate inside *istio-installation/istio* directory.
 ```
-cd istio-resources/istio-1.11.4-installation/istio
+cd istio-resources/istio-installation/istio
 ```
 Apply the manifest yamls on the Kubernetes cluster.
 
@@ -76,7 +78,7 @@ Out of the above services, we will use
 ### Installing addons.
 - Addons are not mandatory, but supportive artifacts for the service mesh. You can find manifest files for each addon using the link below.
     - [Istio addons](https://istio.io/v1.11/docs/ops/integrations/) 
-- The artifacts for the addons are located inside *istio-1.11.4-installation/addons* directory.
+- The artifacts for the addons are located inside *istio-installation/addons* directory.
     - Use the ***kubectl apply -f \<add on file>*** to deploy the addons on Kubernetes cluser.
 
 
