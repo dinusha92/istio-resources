@@ -1,20 +1,30 @@
 # istio-resources
 This repository contains Istio resources from installation to covering use cases of istio.
 
-The current installation are artifacts are created for Istio version 1.11.
+The current installation are artifacts are created for the Istio version 1.11.
 
 ### Install istio
 
 Istio can be installed a couple of [ways](https://istio.io/v1.11/docs/setup/install/).
 
-This intructions guides you to install Istio demo profile using manifest yaml files.
+This documentation guides you to install Istio demo profile using the manifest yaml files.
 
 Clone the repository
 
-# [SSH](#tab/tab-id-1)
-```
-git clone git@github.com:dinusha92/istio-resources.git
-```
+<details>
+    <summary markdown="span"> Using SSH</summary>
+    
+    git clone git@github.com:dinusha92/istio-resources
+    
+
+</details>
+
+<details>
+    <summary markdown="span">Using HTTP</summary>
+
+    git clone https://github.com/dinusha92/istio-resources.git
+</details>
+
 
 Navigate inside the root directory of the downloaded project and then navigate inside *istio-installation/istio* directory.
 ```
