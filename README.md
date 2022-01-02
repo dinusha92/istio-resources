@@ -26,14 +26,14 @@ Clone the repository
 </details>
 
 
-Navigate inside the root directory of the downloaded project and then navigate inside *istio-installation/istio* directory.
+Navigate inside the root directory of the downloaded project and then navigate inside *istio-installation* directory.
 ```
-cd istio-resources/istio-installation/istio
+cd istio-resources/istio-installation
 ```
 Apply the manifest yamls on the Kubernetes cluster.
 
 ```
-kubectl apply -f .
+./istio-install.sh
 ```
 Verify the status of the Istio installation by checking if the pods are in the READY state as shown belowe.
 ```
@@ -90,5 +90,10 @@ Out of the above services, we will use
     - [Istio addons](https://istio.io/v1.11/docs/ops/integrations/) 
 - The artifacts for the addons are located inside *istio-installation/addons* directory.
     - Use the ***kubectl apply -f \<add on file>*** to deploy the addons on Kubernetes cluser.
+
+
+### Scenarios
+
+1. [Circuit Breaking](/samples/circuit-breaking/circuit-breaking.md)
 
 
